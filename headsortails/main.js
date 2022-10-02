@@ -41,12 +41,13 @@ function getResult(){
         flip = 'tails'
     }
     
+    const resultText = document.querySelector('#resultText').innerText
     if(flip === 'heads'){
-        document.querySelector('#resultText').innerText = 'You Won!!!'
+        resultText  = 'You Won!!!'
     }else if(flip === ''){
-        document.querySelector('#resultText').innerText = 'Sorry, You Lost, Try again'
+        resultText = 'Sorry, You Lost, Try again'
     }else{
-        document.querySelector('#resultText').innerText = 'Choose a side'
+        resultText = 'Choose a side'
     }
 }
 
