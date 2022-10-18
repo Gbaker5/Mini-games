@@ -1,3 +1,9 @@
+
+
+body{
+    background: linear-gradient(to right, darkred, black);
+}
+
 table{
     margin: 100px 30% 50% 30%;
 }
@@ -6,10 +12,15 @@ td{
     padding: 20px;
     border: solid black 2px;
     width:25%;
+    background-color: white;
 }
 
 #result{
     padding:8px;
-    background-color: aqua;
+    background-color: #ffd700;
     
+}
+
+button{
+    font-size:2rem;
 }
