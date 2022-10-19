@@ -1,9 +1,32 @@
 class Calculator{
     constructor(prevOperandText, curOperandText){
-        
+        this.prevOperandText = prevOperandText
+        this.curOperandText = curOperandText
     }
 
+    clear() {
+        this.curre
+    }
 
+    delete(){
+
+    }
+
+    appendNumber(number){
+
+    }
+
+    chooseOperation(operation){
+
+    }
+
+    compute(){
+
+    }
+
+    updateDisplay(){
+
+    }
 
 }
 
