@@ -11,7 +11,7 @@ body{
 }
 
 .calculator-grid{
-    display:grid;
+    display: grid;
     justify-content:center;
     align-content: center;
     min-height:100vh;
@@ -46,4 +46,14 @@ body{
     padding: 10px;
     word-wrap: break-word;
     word-break: break-all;
+}
+
+.output .prev-operand{
+    color: rgba(255, 255, 255, .75);
+    font-size:1.5rem;
+}
+
+.output .current-operand{
+    color: white;
+    font-size: 2.5rem;
 }
