@@ -14,9 +14,10 @@ class Calculator{
     delete(){
 
     }
-
+   
     appendNumber(number){
-        this.currentOperand = number
+        if(number === '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = this.currentOperand.toString() + number.toString()  //adds a number in the form of a string instead of a number so that it appends instead of adding together
     }
 
     chooseOperation(operation){
