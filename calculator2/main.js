@@ -5,6 +5,7 @@ class Calculator{
         this.clear()
     }
 
+    //clears all numbers and operations
     clear() {
         this.currentOperand = ''
         this.prevOperand = ''
@@ -16,12 +17,18 @@ class Calculator{
     }
    
     appendNumber(number){
-        if(number === '.' && this.currentOperand.includes('.')) return
+        if(number === '.' && this.currentOperand.includes('.')) return //prevents user from repeating the period sign in the current problem
         this.currentOperand = this.currentOperand.toString() + number.toString()  //adds a number in the form of a string instead of a number so that it appends instead of adding together
     }
 
     chooseOperation(operation){
-
+        if (this.currentOperand === '') return //prevents user from inputting an operation if current num is empty
+        if (this.prevOperand !== ''){
+            this.compute()
+        }
+        this.operation = operation
+        this.prevOperand = this.currentOperand
+        this.currentOperand = ''
     }
 
     compute(){
@@ -30,6 +37,7 @@ class Calculator{
 
     updateDisplay(){
         this.curOperandText.innerText = this.currentOperand
+        this.prevOperandText.innerText = this.prevOperand
     }
 
 }
@@ -50,6 +58,14 @@ const calculator = new Calculator(prevOperandText, curOperandText)
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
+    })
+})
+
+//add an event listener to each operation button 
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText)
         calculator.updateDisplay()
     })
 })
