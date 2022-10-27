@@ -1,3 +1,4 @@
+//calculator CLASS which holds all functions necessary for calculator to operate
 class Calculator{
     constructor(prevOperandText, curOperandText){
         this.prevOperandText = prevOperandText
@@ -5,9 +6,9 @@ class Calculator{
         this.clear()
     }
 
-    //clears all numbers and operations
+    
     clear() {
-        this.currentOperand = ''
+        this.currentOperand = '' //clears all numbers and operations
         this.prevOperand = ''
         this.operation = undefined
     }
@@ -23,7 +24,7 @@ class Calculator{
 
     chooseOperation(operation){
         if (this.currentOperand === '') return //prevents user from inputting an operation if current num is empty
-        if (this.prevOperand !== ''){
+        if (this.prevOperand !== ''){ //allows you to compute current equation and add new operand on display both in previous operand section
             this.compute()
         }
         this.operation = operation
@@ -42,8 +43,7 @@ class Calculator{
 
 }
 
-
-//declare variables
+//declare VARIABLES
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
@@ -54,6 +54,8 @@ const curOperandText = document.querySelector('[data-current-operand]')
 
 const calculator = new Calculator(prevOperandText, curOperandText)
 
+
+///EVENT LISTENERS
 //add an event listener to each number button that appends the corresponding number to display and updates
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -66,6 +68,14 @@ numberButtons.forEach(button => {
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.chooseOperation(button.innerText)
+        calculator.updateDisplay()
+    })
+})
+
+//add an event listener to the equal button
+equalsButton.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.compute()
         calculator.updateDisplay()
     })
 })
