@@ -33,6 +33,12 @@ class Calculator{
         this.currentOperand = ''
     }
 
+    //posOrNeg(){
+        //console.log('running')
+        //if (this.currentOperand === '') return //prevents user from inputting an operation if current num is empty
+        
+    //}
+
     compute(){
         let computation
         const prev = parseFloat(this.prevOperand) //convert string to number
@@ -77,9 +83,10 @@ const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
 const deleteButton = document.querySelector('[data-delete]')
-const allClearButton = document.querySelector('[data-all-clear]')
+const allClearButton = document.querySelector('[data-allclear]')
 const prevOperandText = document.querySelector('[data-prev-operand]')
 const curOperandText = document.querySelector('[data-current-operand]')
+const posOrNegButton = document.querySelector('[data-posNeg]')
 
 const calculator = new Calculator(prevOperandText, curOperandText)
 
@@ -101,6 +108,13 @@ operationButtons.forEach(button => {
     })
 })
 
+//add an event listener to the clear button
+//posOrNegButton.addEventListener('click', button => {
+    //calculator.posOrNeg()
+    //calculator.updateDisplay()
+
+//})
+
 //add an event listener to the equal button
 equalsButton.addEventListener('click', button => {
         calculator.compute()
@@ -114,3 +128,6 @@ allClearButton.addEventListener('click', button => {
         calculator.updateDisplay()
     
 })
+
+
+
