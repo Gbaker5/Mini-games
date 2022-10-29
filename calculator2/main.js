@@ -23,6 +23,7 @@ class Calculator{
     }
 
     chooseOperation(operation){
+        console.log(operation)
         if (this.currentOperand === '') return //prevents user from inputting an operation if current num is empty
         if (this.prevOperand !== ''){ //allows you to compute current equation and add new operand on display both in previous operand section
             this.compute()
@@ -33,7 +34,35 @@ class Calculator{
     }
 
     compute(){
-
+        let computation
+        const prev = parseFloat(this.prevOperand) //convert string to number
+        const current = parseFloat(this.currentOperand) //convert string to number
+        if (isNaN(prev) || isNaN(current)) return //if there is no prev or current value dont run
+        switch (this.operation){ //switch case to determine operation performed ans computed
+            case '+':
+                    computation = prev + current //addition operation
+                    break 
+            case '-':
+                    computation = prev - current //subtraction operation
+                    break  
+            case '*':
+                    computation = prev * current //multiplaction operation
+                    break  
+            case '/':
+                    computation = prev / current //division operation
+                    break 
+            case '%':
+                    computation = prev % current //modulus operation
+                    break 
+            case '+/-':
+                    computation = current * -1 //plus or minus operation
+                    break 
+            default:
+                return 
+        }
+        this.currentOperand = computation //current number will show computation
+        this.operation = undefined 
+        this.prevOperand = '' //prev text will be cleared
     }
 
     updateDisplay(){
@@ -43,7 +72,7 @@ class Calculator{
 
 }
 
-//declare VARIABLES
+//VARIABLES
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
@@ -73,9 +102,15 @@ operationButtons.forEach(button => {
 })
 
 //add an event listener to the equal button
-equalsButton.forEach(button => {
-    button.addEventListener('click', () => {
+equalsButton.addEventListener('click', button => {
         calculator.compute()
         calculator.updateDisplay()
-    })
+    
+})
+
+//add an event listener to the clear button
+allClearButton.addEventListener('click', button => {
+        calculator.clear()
+        calculator.updateDisplay()
+    
 })
