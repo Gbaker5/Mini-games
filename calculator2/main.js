@@ -9,7 +9,7 @@ class Calculator{
     
     clear() {
         this.currentOperand = '' //clears all numbers and operations
-        this.prevOperand = ''
+        this.prevOperand = '0'
         this.operation = undefined
     }
 
@@ -73,7 +73,9 @@ class Calculator{
 
     updateDisplay(){
         this.curOperandText.innerText = this.currentOperand
-        this.prevOperandText.innerText = this.prevOperand
+        if (this.operation != null){
+            this.prevOperandText.innerText = `${this.prevOperand} ${this.operation}`
+        }
     }
 
 }
