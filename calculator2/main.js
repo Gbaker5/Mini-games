@@ -8,8 +8,8 @@ class Calculator{
 
     
     clear() {
-        this.currentOperand = '' //clears all numbers and operations
-        this.prevOperand = '0'
+        this.currentOperand = '' 
+        this.prevOperand = ''
         this.operation = undefined
     }
 
@@ -66,13 +66,14 @@ class Calculator{
             default:
                 return 
         }
-        this.currentOperand = computation //current number will show computation
+        this.currentOperand = computation //current number will show solution to equation
         this.operation = undefined 
         this.prevOperand = '' //prev text will be cleared
     }
 
     updateDisplay(){
         this.curOperandText.innerText = this.currentOperand
+        this.prevOperandText.innerText = this.prevOperand
         if (this.operation != null){
             this.prevOperandText.innerText = `${this.prevOperand} ${this.operation}`
         }
@@ -110,7 +111,7 @@ operationButtons.forEach(button => {
     })
 })
 
-//add an event listener to the clear button
+//add an event listener to the pos/neg button
 //posOrNegButton.addEventListener('click', button => {
     //calculator.posOrNeg()
     //calculator.updateDisplay()
