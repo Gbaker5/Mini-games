@@ -71,11 +71,25 @@ class Calculator{
         this.prevOperand = '' //prev text will be cleared
     }
 
+    getDisplayNumber(number){
+        //splitting number into two: the INTEGER[number before decimal place] and the DECIMAL DIGITS[which come after the decimal place]
+        const stringNumber = number.toString() //converts number to string 
+        console.log(stringNumber)
+        const integerDigits = parseFloat(stringNumber.split('.')[0]) //takes the string and turns it into an array and gives number BEFORE decimal
+        console.log(integerDigits)
+        const decimalDigits = stringNumber.split('.')[1] //takes the string and turns it into an array and gives number AFTER decimal (doesnt need to be Actual number)
+        console.log(decimalDigits)
+        
+        //const floatNumber = parseFloat(number) //converts string into actual number
+        //if (isNaN(floatNumber)) return ''
+        //return floatNumber.toLocaleString('en')//implements langauge that enables commas for lengthy numbers
+    }
+
     updateDisplay(){
-        this.curOperandText.innerText = this.currentOperand
-        this.prevOperandText.innerText = this.prevOperand
+        this.curOperandText.innerText = this.getDisplayNumber(this.currentOperand)
+        this.prevOperandText.innerText = this.getDisplayNumber(this.prevOperand)
         if (this.operation != null){
-            this.prevOperandText.innerText = `${this.prevOperand} ${this.operation}`
+            this.prevOperandText.innerText = `${this.getDisplayNumber(this.prevOperand)} ${this.operation}`
         }
     }
 
