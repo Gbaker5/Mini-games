@@ -74,12 +74,19 @@ class Calculator{
     getDisplayNumber(number){
         //splitting number into two: the INTEGER[number before decimal place] and the DECIMAL DIGITS[which come after the decimal place]
         const stringNumber = number.toString() //converts number to string 
-        console.log(stringNumber)
         const integerDigits = parseFloat(stringNumber.split('.')[0]) //takes the string and turns it into an array and gives number BEFORE decimal
-        console.log(integerDigits)
         const decimalDigits = stringNumber.split('.')[1] //takes the string and turns it into an array and gives number AFTER decimal (doesnt need to be Actual number)
-        console.log(decimalDigits)
-        
+        let integerDisplay
+        if (isNaN(integerDigits)){ //in the case that '' or '.' is input
+            integerDisplay = ''
+        } else{
+            integerDisplay = integerDigits.toLocaleString('en', {maximumFractionDigits: 0}) //implements langauge that enables commas for lengthy numbers and allows no decimals to be placed after conversion
+        }
+        if(decimalDigits != null){
+            return `${integerDisplay}.${decimalDigits}`
+        }else {
+            return integerDisplay
+        }
         //const floatNumber = parseFloat(number) //converts string into actual number
         //if (isNaN(floatNumber)) return ''
         //return floatNumber.toLocaleString('en')//implements langauge that enables commas for lengthy numbers
