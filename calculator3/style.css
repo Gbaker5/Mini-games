@@ -21,10 +21,10 @@ body{
 
 .calculator-grid > button {
     cursor:pointer;
-    border-radius: 50px;
+    border-radius: 50%;
     background: linear-gradient(145deg, #8c1200, #760f00);
-    box-shadow:  18px 18px 35px #6f0e00,
-             -18px -18px 35px #971400;
+    box-shadow:  19px 19px 38px #6f0e00,
+                 -19px -19px 38px #971400;
 }
 
 .calculator-grid > button:hover{
