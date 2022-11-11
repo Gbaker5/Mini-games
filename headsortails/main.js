@@ -18,22 +18,32 @@ function getChoice(){
     }else if(choice === 'tails'){
         document.querySelector('#choiceText').innerText = `You chose ${choice.toUpperCase()}!!!`
     }else{
-        return ''
+        document.querySelector('#choiceText').innerText = `Pick a Coin, Any Coin`
     }
 }
 
 function heads(){
-
+    document.querySelector('#choiceText').innerText = `You chose HEADS!!!`
 }
 
 function tails(){
-
+    document.querySelector('#choiceText').innerText = `You chose TAILS!!!`
 }
 
 function getResult(){
-
+    
+    
+    if(){
+        document.querySelector('#resultText').innerText = 'You Won!!!'
+    }else if(){
+        document.querySelector('#resultText').innerText = 'Sorry, You Lost, Try again'
+    }else{
+        document.querySelector('#resultText').innerText = 'Choose a side'
+    }
 }
 
 function reset(){
-
+    document.querySelector('#choiceText').innerText = ''
+    document.querySelector('#resultText').innerText = ''
+    document.querySelector('#choice').value = ''
 }
