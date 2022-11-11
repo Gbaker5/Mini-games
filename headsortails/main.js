@@ -31,11 +31,19 @@ function tails(){
 }
 
 function getResult(){
+    const decision = Math.random().toFixed(1)
+    console.log(decision)
+
+    let flip
+    if(decision < .50){
+        flip = 'heads'
+    }else{
+        flip = 'tails'
+    }
     
-    
-    if(){
+    if(flip === 'heads'){
         document.querySelector('#resultText').innerText = 'You Won!!!'
-    }else if(){
+    }else if(flip === ''){
         document.querySelector('#resultText').innerText = 'Sorry, You Lost, Try again'
     }else{
         document.querySelector('#resultText').innerText = 'Choose a side'
