@@ -23,31 +23,31 @@ function getChoice(){
 }
 
 function heads(){
-    document.querySelector('#choiceText').innerText = `You chose HEADS!!!`
+    document.querySelector('#choiceText').innerText = 'You chose HEADS!!!'
 }
 
 function tails(){
-    document.querySelector('#choiceText').innerText = `You chose TAILS!!!`
+    document.querySelector('#choiceText').innerText = 'You chose TAILS!!!'
 }
 
 function getResult(){
-    const decision = Math.random().toFixed(1)
+    const decision = Number(Math.random().toFixed(1))
     console.log(decision)
 
-    let flip
-    if(decision < .50){
-        flip = 'heads'
-    }else{
-        flip = 'tails'
+    function flip(){
+       return decision <=  .50 ? "You chose HEADS!!!" : "You chose TAILS!!!";
     }
+    console.log(flip)
+
+    const choiceText = document.querySelector('#choiceText').innerText
+    console.log(choiceText)
     
-    const resultText = document.querySelector('#resultText').innerText
-    if(flip === 'heads'){
-        resultText  = 'You Won!!!'
+    if(flip == choiceText){
+        document.querySelector('#resultText').innerText = 'You Won!!!'
     }else if(flip === ''){
-        resultText = 'Sorry, You Lost, Try again'
+        document.querySelector('#resultText').innerText = 'Sorry, You Lost, Try again'
     }else{
-        resultText = 'Choose a side'
+        document.querySelector('#resultText').innerText = 'Choose a side'
     }
 }
 
