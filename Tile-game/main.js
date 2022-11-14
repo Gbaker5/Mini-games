@@ -62,31 +62,40 @@ function dragDrop(){
 }
 
 function dragEnd(){
-    console.log("swapped")
+    //if(!otherTile.src.includes("3.jpg")){ //if one tile isn't the "blank tile" then don't execute anything
+        //return
+    //}
 
     //LOCATION OR COORDINATES OF CURRENT TILE AND OTHER TILE
     let currCords = currTile.id.split("-"); //ex: "0-0" -> ["0","0"]
-    console.log(currCords)
+    //console.log(currCords)
     let r = parseInt(currCords[0]) //CURRENT tile row
     let c = parseInt(currCords[1]) //CURRENT tile column
-    console.log(r,c)
+    console.log("selected",r,c)
 
     let otherCords = otherTile.id.split("-"); //ex: "0-0" -> ["0","0"]
-    console.log(otherCords)
+    //console.log(otherCords)
     let r2 = parseInt(otherCords[0]) //OTHER tile row   
     let c2 = parseInt(otherCords[1]) //OTHER tile column
-    console.log(r2,c2)
+    console.log("destination",r2,c2)
 
     //CHECKING FOR ADJACENCY
     let moveLeft = r == r2 && c2 == c-1; //same row diff column 
     let moveRight = r == r2 && c2 == c+1;
     let moveUp = c == c2 && r2 == -1; //same column diff row
-    let moveDown = c== c2 && r2 == r+1;
+    let moveDown = c == c2 && r2 == r+1;
 
+    let isAdjacent =  moveLeft || moveRight || moveUp || moveDown
+
+    if(isAdjacent){
     //swapping images
     let currImg = currTile.src;
     let otherImg = otherTile.src;
 
     currTile.src = otherImg;
     otherTile.src = currImg;
+
+    turns +=1;
+    document.getElementById("turns").innerText = turns
+    }
 }
