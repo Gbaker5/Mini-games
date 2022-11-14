@@ -38,31 +38,52 @@ window.onload = function(){ //when the page loads do this function
 
 function dragStart(){
     currTile = this; //this refers to the img tile being dragged
-    console.log("started")
+    
+    
 }
 
 function dragOver(e){
     e.preventDefault()
-    console.log("over")
+    
 }
 
 function dragEnter(e){
     e.preventDefault()
-    console.log("entered")
+    
 }
 
 function dragLeave(e){
-    console.log("left")
+    
 }
 
 function dragDrop(){
    otherTile = this; //this refers to the img tile being dropped in
-   console.log("dropped")
+   
 }
 
 function dragEnd(){
     console.log("swapped")
 
+    //LOCATION OR COORDINATES OF CURRENT TILE AND OTHER TILE
+    let currCords = currTile.id.split("-"); //ex: "0-0" -> ["0","0"]
+    console.log(currCords)
+    let r = parseInt(currCords[0]) //CURRENT tile row
+    let c = parseInt(currCords[1]) //CURRENT tile column
+    console.log(r,c)
+
+    let otherCords = otherTile.id.split("-"); //ex: "0-0" -> ["0","0"]
+    console.log(otherCords)
+    let r2 = parseInt(otherCords[0]) //OTHER tile row   
+    let c2 = parseInt(otherCords[1]) //OTHER tile column
+    console.log(r2,c2)
+
+    //CHECKING FOR ADJACENCY
+    let moveLeft = r == r2 && c2 == c-1; //same row diff column 
+    let moveRight = r == r2 && c2 == c+1;
+    let moveUp = c == c2 && r2 == -1; //same column diff row
+    let moveDown = c== c2 && r2 == r+1;
+
+    //swapping images
     let currImg = currTile.src;
     let otherImg = otherTile.src;
 
