@@ -82,7 +82,7 @@ function dragEnd(){
     //CHECKING FOR ADJACENCY
     let moveLeft = r == r2 && c2 == c-1; //same row diff column 
     let moveRight = r == r2 && c2 == c+1;
-    let moveUp = c == c2 && r2 == -1; //same column diff row
+    let moveUp = c == c2 && r2 == r-1; //same column diff row
     let moveDown = c == c2 && r2 == r+1;
 
     let isAdjacent =  moveLeft || moveRight || moveUp || moveDown

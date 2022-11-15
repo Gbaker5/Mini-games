@@ -11,40 +11,40 @@ document.querySelector('#reset').addEventListener('click', reset )
 
 //FUNCTIONS
 function getChoice(){
-    const choice = document.querySelector('#choice').value
+    const choice = document.querySelector('#choice').value.toLowerCase()//grab value from input
     console.log(choice)
+    //conditionals that display your choice in the dom and return it
     if(choice === 'heads'){
         document.querySelector('#choiceText').innerText = `You chose ${choice.toUpperCase()}!!!`
+        return choice
     }else if(choice === 'tails'){
         document.querySelector('#choiceText').innerText = `You chose ${choice.toUpperCase()}!!!`
+        return choice
     }else{
         document.querySelector('#choiceText').innerText = `Pick a Coin, Any Coin`
+        return ''
     }
 }
 
 function heads(){
-    document.querySelector('#choiceText').innerText = 'You chose HEADS!!!'
+    document.querySelector('#choiceText').innerText = 'You chose HEADS!!!' //shows text after you click the image
+    
 }
 
 function tails(){
-    document.querySelector('#choiceText').innerText = 'You chose TAILS!!!'
+    document.querySelector('#choiceText').innerText = 'You chose TAILS!!!' //shows text after you click the image
 }
 
 function getResult(){
-    const decision = Number(Math.random().toFixed(1))
-    console.log(decision)
-
-    function flip(){
-       return decision <=  .50 ? "You chose HEADS!!!" : "You chose TAILS!!!";
-    }
-    console.log(flip)
-
-    const choiceText = document.querySelector('#choiceText').innerText
-    console.log(choiceText)
+    const choice = document.querySelector('#choice').value.toLowerCase()//grab value from input
     
-    if(flip == choiceText){
+    const decision = Number(Math.random().toFixed(1)) <  .5 ? 'heads' : 'tails'; //gets random number and determines heads or tails
+    console.log(decision)
+    
+    //conditional that inserts text to declare a winner or loser
+    if(decision == choice){
         document.querySelector('#resultText').innerText = 'You Won!!!'
-    }else if(flip === ''){
+    }else if(!decision == choice){
         document.querySelector('#resultText').innerText = 'Sorry, You Lost, Try again'
     }else{
         document.querySelector('#resultText').innerText = 'Choose a side'
