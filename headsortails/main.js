@@ -17,12 +17,15 @@ function getChoice(){
     //conditionals that display your choice in the dom and return it
     if(choice === 'heads'){
         document.querySelector('#choiceText').innerText = `You chose ${choice.toUpperCase()}!!!`
+        document.querySelector('#choiceText').style.color = 'blue'
         return choice
     }else if(choice === 'tails'){
         document.querySelector('#choiceText').innerText = `You chose ${choice.toUpperCase()}!!!`
+        document.querySelector('#choiceText').style.color = 'blue'
         return choice
     }else{
         document.querySelector('#choiceText').innerText = `Pick a Coin, Any Coin`
+        document.querySelector('#choiceText').style.color = 'red'
         return ''
     }
 }
@@ -32,12 +35,14 @@ var HeadsOrTails = {} //global function for coin choice
 
 function heads(){
     document.querySelector('#choiceText').innerText = 'You chose HEADS!!!' //shows text after you click the image
+    document.querySelector('#choiceText').style.color = 'blue'
     document.querySelector('#tails').src = 'img/leftarrow.png'
     HeadsOrTails.flip = 'heads'
 }
 
 function tails(){
     document.querySelector('#choiceText').innerText = 'You chose TAILS!!!' //shows text after you click the image
+    document.querySelector('#choiceText').style.color = 'blue'
     document.querySelector('#heads').src = 'img/rightarrow.png'
     HeadsOrTails.flip = 'tails'
 }
@@ -66,10 +71,13 @@ function getResult(){
     //conditional that inserts text to declare a winner or loser
     if(decision == choice || decision == HeadsOrTails.flip){
         document.querySelector('#resultText').innerText = 'You Won!!!'
+        document.querySelector('#resultText').style.color = 'green'
     }else if(document.querySelector('#choiceText').innerText == `Pick a Coin, Any Coin`){
         document.querySelector('#resultText').innerText = 'Choose a side'
+        document.querySelector('#resultText').style.color = 'red'
     }else{
         document.querySelector('#resultText').innerText = 'Sorry, You Lost, Try again'
+        document.querySelector('#resultText').style.color = 'orange'
     }
 }
 
